@@ -8,6 +8,6 @@ export * from './npm'
 export * from './type'
 export * from './user'
 
-export { log } from './log'
+export { logger } from './logger'
 export { default as chalk } from 'chalk'
 export { default as inquirer } from 'inquirer'
