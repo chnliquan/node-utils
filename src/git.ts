@@ -68,6 +68,7 @@ export function getGitUrl(dir: string, exact?: boolean): string {
 
   try {
     const parsed = ini.parse(fs.readFileSync(path.join(gitDir, 'config'), 'utf8'))
+
     if (parsed['remote "origin"']) {
       return parsed['remote "origin"'].url
     }

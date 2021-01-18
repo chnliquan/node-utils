@@ -9,7 +9,7 @@ export interface Output {
   stderr: string
 }
 
-export function exec(cmd: string, options?: cp.ExecOptions, output?: Output): Promise<string> {
+export function run(cmd: string, options?: cp.ExecOptions, output?: Output): Promise<string> {
   const opts = options || {}
   const op = output || ({} as Output)
 
@@ -79,7 +79,7 @@ export function getPid(cmd: string): Promise<number | null> {
   }
 
   return new Promise((resolve, reject) => {
-    exec('ps -eo pid,comm')
+    run('ps -eo pid,comm')
       .then(stdout => {
         const pid = parse(stdout, cmd)
         resolve(pid)
