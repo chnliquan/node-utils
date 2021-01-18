@@ -1,5 +1,16 @@
 # Change Log 
 
+# [0.2.0](https://github.com/chnliquan/node-utils/compare/v0.1.0...v0.2.0) (2021-01-18)
+
+
+### ✨ Features
+
+* add env ([a091c1c](https://github.com/chnliquan/node-utils/commit/a091c1c439961ca9ac4b3be60b467d294d768250))
+
+
+
+ 
+
 # 0.1.0 (2021-01-17)
 
 
@@ -7,6 +18,3 @@
 
 * add utils ([5c785d2](https://github.com/chnliquan/node-utils/commit/5c785d2eb056d0e830037d7fa7f088f948bb4127))
 * add utils ([34eb249](https://github.com/chnliquan/node-utils/commit/34eb24982bbe60e9c3a71a91842992493ea60d38))
-
-
-
