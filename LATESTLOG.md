@@ -1,9 +1,9 @@
-## [Changes](https://github.com/chnliquan/node-utils/compare/v0.1.0...v0.2.0) (2021-01-18)
+## [Changes](https://github.com/chnliquan/node-utils/compare/v0.2.0...v0.2.1) (2021-01-18)
 
 
 ### ✨ Features
 
-* add env ([a091c1c](https://github.com/chnliquan/node-utils/commit/a091c1c439961ca9ac4b3be60b467d294d768250))
+* add pkg ([25bf5d6](https://github.com/chnliquan/node-utils/commit/25bf5d633ce00f90d74d64432dc21e52541d8d84))
 
 
 
