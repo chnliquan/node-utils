@@ -9,6 +9,7 @@ export * from './npm'
 export * from './type'
 export * from './user'
 export * from './obj'
+export * from './string'
 
 export { logger } from './logger'
 export { default as chalk } from 'chalk'

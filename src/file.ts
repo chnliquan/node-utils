@@ -12,11 +12,11 @@ import ejs from 'ejs'
 import { PLATFORM, TEMP_DIR } from './const'
 import { EjsOptions } from './types'
 
-export function readJSONSync(file: string): Record<string, any> | null {
+export function readJSONSync(file: string): Record<string, any> {
   try {
     return parseJSON(fs.readFileSync(file, 'utf8'))
   } catch (err) {
-    return null
+    return Object.create(null)
   }
 }
 
