@@ -78,10 +78,12 @@ export function loopAsk(
       })
     )
     .then((answers: any) => {
-      console.log('你输入的信息如下:')
+      console.log('The information you entered is as follows:')
       console.log(JSON.stringify(answers, null, 2))
 
-      return confirm('如果信息无误, 请按 Y 确认; 如需重新输入, 请按 N').then(isOK => {
+      return confirm(
+        'If the information is correct, press Y to confirm; if you need to re-enter, press N'
+      ).then(isOK => {
         if (isOK) {
           return answers
         } else {

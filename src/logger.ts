@@ -16,15 +16,11 @@ export class Logger {
 
   error(...args: string[]): void {
     signale.error(...args)
-  }
-
-  step(name: string): void {
-    console.log(`${chalk.gray('>>> Release:')} ${chalk.magenta.bold(name)}`)
-  }
-
-  printErrorAndExit(message: string): void {
-    this.error(message)
     process.exit(1)
+  }
+
+  step(prefix: string, message: string): void {
+    console.log(`${chalk.gray(`>>> ${prefix}:`)} ${chalk.magenta.bold(message)}`)
   }
 
   scope(scope: string): signale.Signale {
