@@ -1,9 +1,9 @@
-## [Changes](https://github.com/chnliquan/node-utils/compare/v0.2.0...v0.2.1) (2021-01-18)
+## [Changes](https://github.com/chnliquan/node-utils/compare/v0.2.1...v0.2.2) (2021-01-18)
 
 
-### ✨ Features
+### ♻ Code Refactoring
 
-* add pkg ([25bf5d6](https://github.com/chnliquan/node-utils/commit/25bf5d633ce00f90d74d64432dc21e52541d8d84))
+* logger ([058341c](https://github.com/chnliquan/node-utils/commit/058341c558ced44bd215a43822bb2adec1975325))
 
 
 
