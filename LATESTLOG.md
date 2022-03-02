@@ -1,9 +1,9 @@
-## [Changes](https://github.com/chnliquan/node-utils/compare/v0.2.1...v0.2.2) (2021-01-18)
+## [Changes](https://github.com/chnliquan/node-utils/compare/v0.2.2...v0.3.0) (2022-03-02)
 
 
-### ♻ Code Refactoring
+### ✨ Features
 
-* logger ([058341c](https://github.com/chnliquan/node-utils/commit/058341c558ced44bd215a43822bb2adec1975325))
+* add execa ([a5522d0](https://github.com/chnliquan/node-utils/commit/a5522d05f71c4d1553981912f780ecafc8745e88))
 
 
 
