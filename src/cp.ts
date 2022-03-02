@@ -1,8 +1,27 @@
 import read from 'read'
 import cp from 'child_process'
-import { command } from 'execa'
+import execa, { command } from 'execa'
 
 import { getExecutableCmd } from './file'
+import { isObject } from '.'
+
+export function run(file: string, args?: string[]): execa.ExecaChildProcess
+export function run(file: string, opts?: execa.Options): execa.ExecaChildProcess
+export function run(
+  file: string,
+  args: any = [],
+  opts: execa.Options = Object.create(null)
+): execa.ExecaChildProcess {
+  if (isObject(args)) {
+    opts = args
+    args = []
+  }
+
+  return execa(file, args, {
+    stdio: 'inherit',
+    ...opts,
+  })
+}
 
 export function getPid(cmd: string): Promise<number | null> {
   const parse = (data: string, cmd: string): number | null => {
