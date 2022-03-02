@@ -1,60 +1,8 @@
 import read from 'read'
 import cp from 'child_process'
+import { command } from 'execa'
 
-import { MB } from './const'
 import { getExecutableCmd } from './file'
-
-export interface Output {
-  stdout: string
-  stderr: string
-}
-
-export function run(cmd: string, options?: cp.ExecOptions, output?: Output): Promise<string> {
-  const opts = options || {}
-  const op = output || ({} as Output)
-
-  if (!opts.maxBuffer) {
-    opts.maxBuffer = 2 * MB
-  }
-
-  return new Promise((resolve, reject) => {
-    cp.exec(cmd, opts, (err, stdout, stderr) => {
-      if (err) {
-        reject(err)
-      } else {
-        op.stdout = stdout.toString()
-        op.stderr = stderr.toString()
-        resolve(stdout.toString())
-      }
-    })
-  })
-}
-
-export function spawn(cmd: string, args: string[], opts: cp.SpawnOptions): Promise<void> {
-  return new Promise((resolve, reject) => {
-    const child = cp.spawn(cmd, args, opts)
-
-    // child 出现 error 事件时, exit 可能会触发, 也可能不会
-    let hasError = false
-
-    child.once('error', err => {
-      hasError = true
-      reject(err)
-    })
-
-    child.once('exit', code => {
-      if (hasError) {
-        return
-      }
-
-      if (code) {
-        reject(new Error(`Failed Spawn Command ${cmd}, errorCode is ${code}`))
-      } else {
-        resolve()
-      }
-    })
-  })
-}
 
 export function getPid(cmd: string): Promise<number | null> {
   const parse = (data: string, cmd: string): number | null => {
@@ -79,14 +27,16 @@ export function getPid(cmd: string): Promise<number | null> {
   }
 
   return new Promise((resolve, reject) => {
-    run('ps -eo pid,comm')
-      .then(stdout => {
-        const pid = parse(stdout, cmd)
+    command('ps -eo pid,comm')
+      .then(value => {
+        const pid = parse(value.stdout, cmd)
         resolve(pid)
       })
       .catch(reject)
   })
 }
+
+getPid('node')
 
 export interface SudoOptions {
   spawnOpts?: cp.SpawnOptions
