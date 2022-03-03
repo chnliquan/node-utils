@@ -16,11 +16,23 @@ export class Logger {
 
   error(...args: string[]): void {
     signale.error(...args)
-    process.exit(1)
   }
 
-  step(prefix: string, message: string): void {
-    console.log(`${chalk.gray(`>>> ${prefix}:`)} ${chalk.magenta.bold(message)}`)
+  step(prefix: string): (message: string) => void
+  step(prefix: string, message: string): void
+  step(prefix: string, message?: string): any {
+    if (prefix && message) {
+      console.log(`${chalk.gray(`>>> ${prefix}:`)} ${chalk.magenta.bold(message)}`)
+    } else {
+      return (message: string) => {
+        console.log(`${chalk.gray(`>>> ${prefix}:`)} ${chalk.magenta.bold(message)}`)
+      }
+    }
+  }
+
+  printErrorAndExit(message: string): void {
+    this.error(message)
+    process.exit(1)
   }
 
   scope(scope: string): signale.Signale {
