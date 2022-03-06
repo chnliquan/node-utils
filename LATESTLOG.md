@@ -1,9 +1,9 @@
-## [Changes](https://github.com/chnliquan/node-utils/compare/v0.3.2...v0.4.0) (2022-03-03)
+## [Changes](https://github.com/chnliquan/node-utils/compare/v0.4.0...v0.4.1) (2022-03-06)
 
 
-### ✨ Features
+### 🐛 Bug Fixes
 
-* **logger:** support step hof ([e5f630a](https://github.com/chnliquan/node-utils/commit/e5f630ad2afcae56316f484eaeb3d10e40c8b7bb))
+* **cp:** run override ([9e1e0c9](https://github.com/chnliquan/node-utils/commit/9e1e0c96e9093d32908efc93c06feea9f7931e7b))
 
 
 
