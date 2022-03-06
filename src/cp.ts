@@ -5,8 +5,10 @@ import execa, { command } from 'execa'
 import { getExecutableCmd } from './file'
 import { isObject } from '.'
 
-export function run(file: string, args?: string[]): execa.ExecaChildProcess
-export function run(file: string, opts?: execa.Options): execa.ExecaChildProcess
+export function run(file: string): execa.ExecaChildProcess
+export function run(file: string, args: string[]): execa.ExecaChildProcess
+export function run(file: string, opts: execa.Options): execa.ExecaChildProcess
+export function run(file: string, args: string[], opts: execa.Options): execa.ExecaChildProcess
 export function run(
   file: string,
   args: any = [],
