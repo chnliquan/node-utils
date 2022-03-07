@@ -2,7 +2,7 @@ import fs from 'fs'
 import os from 'os'
 import util from 'util'
 import path from 'path'
-import uuid from 'uuid/v4'
+import { v4 } from 'uuid'
 import rimraf from 'rimraf'
 import parseJSON from 'parse-json'
 import mkdirp from 'mkdirp'
@@ -25,7 +25,7 @@ export function writeJSONSync(file: string, data: Record<string, any>): void {
 }
 
 export function safeWriteFileSync(file: string, data: string): void {
-  const tmpFile = `${file}.${uuid()}-tmp`
+  const tmpFile = `${file}.${v4()}-tmp`
 
   try {
     fs.writeFileSync(tmpFile, data)
@@ -39,7 +39,7 @@ export function safeWriteFileSync(file: string, data: string): void {
 }
 
 export function safeWriteJSONSync(file: string, data: Record<string, unknown>): void {
-  const tmpFile = `${file}.${uuid()}-tmp`
+  const tmpFile = `${file}.${v4()}-tmp`
 
   try {
     writeJSONSync(tmpFile, data)
