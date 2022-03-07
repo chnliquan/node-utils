@@ -1,9 +1,9 @@
-## [Changes](https://github.com/chnliquan/node-utils/compare/v0.4.1...v0.4.2) (2022-03-07)
+## [Changes](https://github.com/chnliquan/node-utils/compare/v0.4.2...v0.4.3) (2022-03-07)
 
 
-### 🐛 Bug Fixes
+### ✨ Features
 
-* git url ([746541a](https://github.com/chnliquan/node-utils/commit/746541a722545870cba8408a656e08e78ecb915a))
+* export uuid ([147c3ac](https://github.com/chnliquan/node-utils/commit/147c3ac9f5787439f7119fc5fa27e446450f0353))
 
 
 
