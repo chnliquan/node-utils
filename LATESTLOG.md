@@ -1,9 +1,9 @@
-## [Changes](https://github.com/chnliquan/node-utils/compare/v0.4.0...v0.4.1) (2022-03-06)
+## [Changes](https://github.com/chnliquan/node-utils/compare/v0.4.1...v0.4.2) (2022-03-07)
 
 
 ### 🐛 Bug Fixes
 
-* **cp:** run override ([9e1e0c9](https://github.com/chnliquan/node-utils/commit/9e1e0c96e9093d32908efc93c06feea9f7931e7b))
+* git url ([746541a](https://github.com/chnliquan/node-utils/commit/746541a722545870cba8408a656e08e78ecb915a))
 
 
 
