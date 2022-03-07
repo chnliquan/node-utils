@@ -78,8 +78,10 @@ export function loopAsk(
       })
     )
     .then((answers: any) => {
+      console.log()
       console.log('The information you entered is as follows:')
       console.log(JSON.stringify(answers, null, 2))
+      console.log()
 
       return confirm(
         'If the information is correct, press Y to confirm; if you need to re-enter, press N'

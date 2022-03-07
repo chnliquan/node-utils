@@ -2,6 +2,35 @@ import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
 
+let _hasPnpm: boolean
+
+export function hasPnpm(): boolean {
+  if (_hasPnpm != null) {
+    return _hasPnpm
+  }
+
+  try {
+    execSync('pnpm --version', { stdio: 'ignore' })
+    return (_hasPnpm = true)
+  } catch (e) {
+    return (_hasPnpm = false)
+  }
+}
+
+function checkPnpm(result: boolean) {
+  if (result && !hasPnpm()) {
+    throw new Error(`The project seems to require npmp but it's not installed.`)
+  }
+  return result
+}
+
+export function hasProjectPnpm(cwd: string): boolean {
+  const lockFile = path.join(cwd, 'pnpm-lock.yaml')
+  const result = fs.existsSync(lockFile)
+
+  return checkPnpm(result)
+}
+
 let _hasYarn: boolean
 
 export function hasYarn(): boolean {
@@ -17,18 +46,18 @@ export function hasYarn(): boolean {
   }
 }
 
-export function hasProjectYarn(cwd: string): boolean {
-  const lockFile = path.join(cwd, 'yarn.lock')
-  const result = fs.existsSync(lockFile)
-
-  return checkYarn(result)
-}
-
 function checkYarn(result: boolean) {
   if (result && !hasYarn()) {
     throw new Error(`The project seems to require yarn but it's not installed.`)
   }
   return result
+}
+
+export function hasProjectYarn(cwd: string): boolean {
+  const lockFile = path.join(cwd, 'yarn.lock')
+  const result = fs.existsSync(lockFile)
+
+  return checkYarn(result)
 }
 
 let _hasGit: boolean

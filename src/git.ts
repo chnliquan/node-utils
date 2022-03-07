@@ -34,7 +34,7 @@ export function normalizeRepo(url: string): Repo {
     hostname = pieces[0].split('@')[1]
     repo = pieces[1].replace(/\.git$/, '')
   } else if (url.startsWith('http')) {
-    // http://git.corp.kuaishou.com/group/node-utils.git
+    // https://git.corp.xxx.com/group/node-utils.git
     // https://github.com/chnliquan/node-utils.git
     const parsedUrl = new URL(url)
     hostname = parsedUrl.hostname || ''
@@ -53,7 +53,7 @@ export function normalizeRepo(url: string): Repo {
   })
 
   return {
-    href: `http://${hostname}/${group.substring(1)}/${project}`,
+    href: `https://${hostname}/${group.substring(1)}/${project}`,
     group: group.substring(1),
     project,
   }
