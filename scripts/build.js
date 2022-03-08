@@ -75,5 +75,5 @@ async function main() {
   }
 
   console.log()
-  logger.success(`Building ${chalk.green.bold(pkg.name)} successfully.`)
+  logger.success(`Building ${chalk.cyanBright.bold(pkg.name)} successfully.`)
 }
