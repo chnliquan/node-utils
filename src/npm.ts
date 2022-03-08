@@ -4,7 +4,6 @@ import urllib from 'urllib'
 import which from 'which'
 
 import { PLATFORM } from './const'
-import { readJSONSync } from './file'
 
 export function getNodePrefix(): string {
   if (process.env.GLOBAL_PREFIX) {

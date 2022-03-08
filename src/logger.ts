@@ -1,21 +1,24 @@
 import chalk from 'chalk'
-import signale from 'signale'
 
 export class Logger {
-  info(...args: string[]): void {
-    signale.info(...args)
+  info(message: string): void {
+    // console.log(`${chalk.blueBright('[info]')}      ${chalk.gray(message)}`)
+    console.log(`${chalk.blueBright(message)}`)
   }
 
-  success(...args: string[]): void {
-    signale.success(...args)
+  success(message: string): void {
+    // console.log(`${chalk.greenBright('[success]')}   ${message}`)
+    console.log(`${chalk.greenBright(message)}`)
   }
 
-  warn(...args: string[]): void {
-    signale.warn(...args)
+  warn(message: string): void {
+    // console.log(`${chalk.yellowBright('[warning]')}   ${message}`)
+    console.log(`${chalk.yellowBright(message)}`)
   }
 
-  error(...args: string[]): void {
-    signale.error(...args)
+  error(message: string): void {
+    // console.log(`${chalk.redBright('[error]')}     ${message}`)
+    console.log(`${chalk.redBright(message)}`)
   }
 
   step(prefix: string): (message: string) => void
@@ -34,10 +37,11 @@ export class Logger {
     this.error(message)
     process.exit(1)
   }
-
-  scope(scope: string): signale.Signale {
-    return signale.scope(scope)
-  }
 }
 
 export const logger = new Logger()
+
+logger.info('this is info')
+logger.success('this is success')
+logger.warn('this is warn')
+logger.error('this is error')

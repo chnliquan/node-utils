@@ -5,11 +5,11 @@ export function stripBlankLines(str: string): string {
   return str.replace(/(\n[\s|\t]*\r*\n)/g, '\n')
 }
 
-interface ArrayIterator<T, R> {
+export interface ArrayIterator<T, R> {
   (value: T, index: number, collection: T[]): R
 }
 
-interface ObjectIterator<T, R> {
+export interface ObjectIterator<T, R> {
   (value: T[keyof T], key: string, target: T): R
 }
 

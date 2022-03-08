@@ -3,6 +3,8 @@ import inquirer from 'inquirer'
 import ora from 'ora'
 import { SpinOptions } from './types'
 
+export { SpinOptions }
+
 export function pause(message?: string): Promise<void> {
   return new Promise(resolve => {
     const rl = readline.createInterface({

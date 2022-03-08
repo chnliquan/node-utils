@@ -6,7 +6,7 @@
       "request": "launch",
       "name": "Current File",
       "program": "${workspaceRoot}/node_modules/ts-node/dist/bin.js",
-      "args": ["--files", "${file}"],
+      "args": ["-O", "{\"module\": \"commonjs\"}", "--files", "${file}"],
       "cwd": "${workspaceRoot}",
       "protocol": "inspector",
       "console": "integratedTerminal"

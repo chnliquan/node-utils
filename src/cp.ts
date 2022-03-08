@@ -57,8 +57,6 @@ export function getPid(cmd: string): Promise<number | null> {
   })
 }
 
-getPid('node')
-
 export interface SudoOptions {
   spawnOpts?: cp.SpawnOptions
   password?: string

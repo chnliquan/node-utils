@@ -1,20 +1,23 @@
 {
   "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": "./",
+    "outDir": "dist",
+    "sourceMap": false,
     "target": "es5",
-    "module": "commonjs",
-    "lib": ["esnext"],
-    "jsx": "react",
-    "strict": true,
-    "sourceMap": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "declaration": true,
-    "typeRoots": ["node_modules/@types", "src/types"],
+    "useDefineForClassFields": false,
+    "module": "esnext",
     "moduleResolution": "node",
-    "outDir": "lib"
+    "allowJs": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "removeComments": false,
+    "jsx": "react",
+    "lib": ["esnext"]
   },
   "include": ["src"],
-  "exclude": ["node_modules", "lib", "scripts", "test"]
+  "exclude": ["node_modules"]
 }
