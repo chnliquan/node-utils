@@ -2,9 +2,10 @@
   "name": "@eljs/node-utils",
   "version": "0.5.0",
   "description": "a collection of node utility functions",
-  "main": "dist/node-utils.js",
+  "main": "dist/node-utils.cjs.js",
+  "module": "dist/node-utils.esm.js",
   "files": [
-    "lib"
+    "dist"
   ],
   "types": "dist/node-utils.d.ts",
   "scripts": {
@@ -77,7 +78,7 @@
   "devDependencies": {
     "@commitlint/cli": "^16.2.1",
     "@commitlint/config-conventional": "^16.2.1",
-    "@eljs/release": "0.5.0",
+    "@eljs/release": "^0.5.2",
     "@microsoft/api-extractor": "^7.19.4",
     "@rollup/plugin-commonjs": "^21.0.2",
     "@rollup/plugin-json": "^4.1.0",

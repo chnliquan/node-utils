@@ -1,7 +1,8 @@
 const fs = require('fs-extra')
 const chalk = require('chalk')
+const { logger } = require('@eljs/release')
 
-const { resolveRoot, bin, logger, run } = require('./utils')
+const { resolveRoot, bin, run } = require('./utils')
 
 const args = require('minimist')(process.argv.slice(2))
 const formats = args.formats || args.f
@@ -11,9 +12,8 @@ const sourceMap = args.sourcemap || args.s
 const isRelease = args.release
 const buildTypes = args.t || args.types || isRelease
 
-const step = message => {
-  console.log()
-  logger.step('Build', message)
+const step = msg => {
+  logger.step(msg, 'Build')
 }
 
 main()
@@ -34,7 +34,7 @@ async function main() {
 
   const env = devOnly ? 'development' : 'production'
 
-  step(`Rolling up bundles for ${chalk.green.bold(pkg.name)}`)
+  step(`Rolling up bundles for ${chalk.cyanBright.bold(pkg.name)}`)
   await run(bin('rollup'), [
     '-c',
     '--environment',
@@ -51,8 +51,7 @@ async function main() {
 
   // build types
   if (buildTypes && pkg.types) {
-    console.log()
-    step(`Rolling up type definitions for ${chalk.green.bold(pkg.name)}`)
+    step(`Rolling up type definitions for ${chalk.cyanBright.bold(pkg.name)}`)
     console.log()
 
     const { Extractor, ExtractorConfig } = require('@microsoft/api-extractor')
@@ -75,5 +74,6 @@ async function main() {
   }
 
   console.log()
-  logger.success(`Building ${chalk.cyanBright.bold(pkg.name)} successfully.`)
+  logger.done(`Compiled ${chalk.cyanBright.bold(pkg.name)} successfully.`)
+  console.log()
 }

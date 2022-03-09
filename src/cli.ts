@@ -62,39 +62,44 @@ export function select<T = string, U extends Choice = Choice>(
   })
 }
 
-export function loopAsk(
+export function ask<T extends Record<string, any> = Record<string, any>>(
   fields: Record<string, any>[],
-  defaults: Record<string, any> = {}
-): Promise<boolean> {
-  return inquirer
-    .prompt(
-      fields.map(field => {
-        const copied = Object.assign({}, field)
-        copied.type = copied.type || 'input'
-        const name = copied.name || ''
+  defaults: Partial<T> = Object.create(null)
+): Promise<T> {
+  return inquirer.prompt(
+    fields.map(field => {
+      const copied = Object.assign({}, field)
+      copied.type = copied.type || 'input'
+      const name = copied.name || ''
 
-        if (defaults[name]) {
-          copied.default = defaults[name]
-        }
-        return copied
-      })
-    )
-    .then((answers: any) => {
-      console.log()
-      console.log('The information you entered is as follows:')
-      console.log(JSON.stringify(answers, null, 2))
-      console.log()
-
-      return confirm(
-        'If the information is correct, press Y to confirm; if you need to re-enter, press N'
-      ).then(isOK => {
-        if (isOK) {
-          return answers
-        } else {
-          return loopAsk(fields, answers)
-        }
-      })
+      if (defaults[name]) {
+        copied.default = defaults[name]
+      }
+      return copied
     })
+  )
+}
+
+export function loopAsk<T extends Record<string, any> = Record<string, any>>(
+  fields: Record<string, any>[],
+  defaults: Partial<T> = Object.create(null)
+): Promise<T> {
+  return ask(fields, defaults).then((answers: any) => {
+    console.log()
+    console.log('The information you entered is as follows:')
+    console.log(JSON.stringify(answers, null, 2))
+    console.log()
+
+    return confirm(
+      'If the information is correct, press Y to confirm; if you need to re-enter, press N'
+    ).then(isOK => {
+      if (isOK) {
+        return answers
+      } else {
+        return loopAsk(fields, answers)
+      }
+    })
+  })
 }
 
 export async function spin<T>(

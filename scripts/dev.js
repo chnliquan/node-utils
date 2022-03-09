@@ -1,8 +1,7 @@
 const chalk = require('chalk')
+const { logger } = require('@eljs/release')
 
-const { resolveRoot, bin, run, logger } = require('./utils')
-
-const step = logger.step('Dev')
+const { resolveRoot, bin, run } = require('./utils')
 
 main()
 
@@ -10,6 +9,6 @@ async function main() {
   const pkgJSONPath = resolveRoot('package.json')
   const pkg = require(pkgJSONPath)
 
-  step(`Watching ${chalk.green.bold(pkg.name)}`)
+  logger.step(`Watching ${chalk.cyanBright.bold(pkg.name)}`, 'Dev')
   await run(bin('rollup'), ['-c', '-w', '--environment', [`FORMATS:cjs`]])
 }
