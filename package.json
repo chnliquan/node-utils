@@ -1,6 +1,6 @@
 {
   "name": "@eljs/node-utils",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "a collection of node utility functions",
   "main": "dist/node-utils.cjs.js",
   "module": "dist/node-utils.esm.js",
