@@ -5,7 +5,7 @@ import nodeResolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 
-const { resolveRoot, logger } = require('./scripts/utils')
+const { resolveRoot } = require('./scripts/utils')
 
 const pkgJSONPath = resolveRoot('package.json')
 const pkg = require(pkgJSONPath)
@@ -36,7 +36,7 @@ export default packageConfigs
 
 function createConfig(format, output, plugins = []) {
   if (!output) {
-    logger.printErrorAndExit(`Invalid format: "${format}"`)
+    throw new Error(`Invalid format: "${format}"`)
   }
 
   const isProductionBuild = process.env.__DEV__ === 'false'

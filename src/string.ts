@@ -1,7 +1,11 @@
-export function camelize(str: string): string {
-  return str.replace(/[-_\s]+(.)?/g, function (_, c) {
+export function camelize(str: string, bigCamelCase = false): string {
+  const formattedStr = str.replace(/[-_\s]+(.)?/g, function (_, c) {
     return c ? c.toUpperCase() : ''
   })
+
+  return bigCamelCase
+    ? `${formattedStr.slice(0, 1).toUpperCase()}${formattedStr.slice(1)}`
+    : formattedStr
 }
 
 export function dasherize(str: string): string {
